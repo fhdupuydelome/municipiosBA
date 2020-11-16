@@ -4,6 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import PaginaListaMunicipios from './src/pages/PaginaListaMunicipios';
+import PaginaDetalheMunicipio from './src/pages/PaginaDetalheMunicipio';
 
 
 const Stack = createStackNavigator();
@@ -13,6 +14,7 @@ function App() {
       <NavigationContainer initialRouteName="PaginaListaMunicipios">
         <Stack.Navigator >
           <Stack.Screen name="Lista de Municipios" component={PaginaListaMunicipios} />
+          <Stack.Screen name="Detalhes do Municipio" component={PaginaDetalheMunicipio} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

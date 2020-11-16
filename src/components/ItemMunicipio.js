@@ -1,14 +1,24 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 
 const ItemMunicipio = (props) => {
 
-  const { municipio } = props;
+  const { municipio, onPressDetails, key } = props;
+
+  console.log(municipio.id);
+
   return (
-    <View style={style.line}>
-      <Text style={style.linetext}>{municipio.nome}</Text>
-    </View>
+    <TouchableOpacity
+      onPress={() => { onPressDetails(municipio.id) }}
+    >
+      <View style={style.line}>
+        <Text
+          style={style.linetext}
+          key={municipio.nome}
+        >{municipio.nome}</Text>
+      </View>
+    </TouchableOpacity>
   )
 }
 

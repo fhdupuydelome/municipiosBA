@@ -3,13 +3,13 @@ import { View, StyleSheet, SafeAreaView, FlatList, Text } from 'react-native';
 import ItemMunicipio from './ItemMunicipio';
 
 const ListaMunicipios = props => {
-  const { municipios } = props;
+  const { municipios, onPressItem } = props;
 
   const renderItem = ({ item }) => {
     return (
       <ItemMunicipio
-        key={item.id}
         municipio={item}
+        onPressDetails={onPressItem}
       />
     )
   }
@@ -20,7 +20,7 @@ const ListaMunicipios = props => {
         <FlatList
           data={municipios}
           renderItem={renderItem}
-          keyExtractor={(item) => {item.id.toString()}}
+          keyExtractor={(item) => { item.id.toString() }}
         />
       </SafeAreaView>
     </View>

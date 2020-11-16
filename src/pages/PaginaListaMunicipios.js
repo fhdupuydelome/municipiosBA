@@ -19,14 +19,19 @@ export default class PaginaListaMunicipios extends React.Component {
         //console.log(municipiosLista);
         this.setState(
           { municipios: municipiosLista }
-        )        
+        )
       })
   }
 
   render() {
     return (
       <View>
-        <ListaMunicipios municipios={this.state.municipios} />
+        <ListaMunicipios
+          municipios={this.state.municipios}
+          onPressItem={(municipoId) => {
+            this.props.navigation.navigate('Detalhes do Municipio', { "municipio":  municipoId})
+          }}
+        />
       </View>
     )
   }
