@@ -1,12 +1,15 @@
 import React from 'react';
-import { SvgUri } from 'react-native-svg';
+import { View } from 'react-native';
+import { SvgCssUri } from 'react-native-svg';
 
-const ImagemMalha = ({uri}) => {
-  <SvgUri 
-    width="50%"
-    height="50%"
-    uri={uri}
-  />
+const ImagemMalha = ({ uri }) => {
+  return (
+    <View>
+      <SvgCssUri
+        uri={uri}
+      />
+    </View>
+  )
 }
 
 export default ImagemMalha;

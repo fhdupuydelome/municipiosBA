@@ -5,34 +5,32 @@ import ItemMunicipio from './ItemMunicipio';
 const ListaMunicipios = props => {
   const { municipios, onPressItem } = props;
 
-  const renderItem = ({ item }) => {
-    return (
-      <ItemMunicipio
-        municipio={item}
-        onPressDetails={onPressItem}
-      />
-    )
-  }
-
   return (
     <View style={style.container}>
       <SafeAreaView>
         <FlatList
+          keyExtractor={item => item.id.toString()}
           data={municipios}
-          renderItem={renderItem}
-          keyExtractor={(item) => { item.id.toString() }}
+          renderItem={
+            ({ item }) => {
+              return (
+                <ItemMunicipio
+                  municipio={item}
+                  onPressDetails={onPressItem}
+                />
+              )
+            }
+          }
         />
       </SafeAreaView>
     </View>
   );
 }
 
-
 const style = StyleSheet.create({
   container: {
     backgroundColor: '#a3fb87'
   }
 })
-
 
 export default ListaMunicipios;

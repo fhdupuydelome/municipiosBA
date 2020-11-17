@@ -7,14 +7,17 @@ import axios from 'axios';
 export default class PaginaDetalheMunicipio extends React.Component {
   constructor(props) {
     super(props);
-    this.state ={ "id": props.route.params.municipio}
+    //this.state = { "id": props.route.params.municipio }
 
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <ImagemMalha style={styles.imagem} uri={`http://servicodados.ibge.gov.br/api/v2/malhas/${this.state.id}`} />
+        <Text>Teste</Text>
+        <ImagemMalha          
+          uri={`http://servicodados.ibge.gov.br/api/v2/malhas/${this.props.route.params.municipio}`}
+        />
       </View>
     )
   }
@@ -23,11 +26,10 @@ export default class PaginaDetalheMunicipio extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    display: "flex",
-    flexDirection: "vertical",
-    justifyContent: "space-around",
+    
     alignItems: "center",
-    textAlign: "center"
+    textAlign: "center", 
+    backgroundColor: '#a3fb87'
   },
   imagem: {
     height: "100%",
